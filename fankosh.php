@@ -4,4 +4,5 @@ echo "ada";
 $s=1;
 echo "khaled";
 echo "hany";
+echo "fuck";
 ?>
