@@ -8,7 +8,7 @@
 
   <div class="cont_centrar">
   <div class="cont_login">
-    <form action="">
+    <form method="GET" action="dosign.php">
     <div class="cont_tabs_login">
       <ul class='ul_tabs'>
         <li class="active"><a href="#" onclick="sign_in()">SIGN IN</a>
@@ -20,7 +20,8 @@
       </div>
   <div class="cont_text_inputs">
       <input type="text" class="input_form_sign " placeholder="NAME" name="name_us" />
-    
+      <input type=text class="input_form_sign " placeholder="PHONE" name="phone_us" />
+      <input type=text class="input_form_sign " placeholder="ADDRESS" name="address_us" />
     <input type="text" class="input_form_sign d_block active_inp" placeholder="EMAIL" name="emauil_us" />
 
     <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD" name="pass_us" />  
