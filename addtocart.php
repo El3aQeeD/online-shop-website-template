@@ -62,12 +62,18 @@ else
                                 var xmlhttp = new XMLHttpRequest();
                                     xmlhttp.onreadystatechange = function() {
                                     if (this.readyState == 4 && this.status == 200) {
-                                        document.getElementById("num").innerHTML = this.responseText;
+                                        document.getElementById("refresh").innerHTML = this.responseText;
+                                        
+                                        
                                     }
                                     };
-                                    xmlhttp.open("GET","removeitem.php?PID="+Id,true);
+                                    xmlhttp.open("POST","removeitem.php?PID="+Id,true);
                                     xmlhttp.send();
-                                    
+                                    autoRefresh();
+                                    function autoRefresh() {
+                                            window.location = window.location.href;
+                                        }
+                                        setInterval('autoRefresh()', 5000);
                             }
                             </script>
                         </tr>
