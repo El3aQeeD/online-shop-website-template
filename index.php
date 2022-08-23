@@ -10,7 +10,7 @@ $count=0;
 <?php 
 $sql="SELECT * FROM product";
 $execute=$conn->query($sql);
-
+$_SESSION["qty"]=1;
 while($Data=$execute->fetch_assoc()){
 
 ?>
@@ -40,15 +40,7 @@ while($Data=$execute->fetch_assoc()){
 
 <!-- Products End -->
 <?php
-/*
-$count++;
-if($count>4){
-    $count=0;
-    echo "</div>" ;
-    
 
-}
-*/
 }
 ?>
         </div>

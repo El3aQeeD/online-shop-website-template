@@ -1,7 +1,4 @@
 <?php
-
-
-
 include_once 'db.php';
 include_once 'header.php';
 if(isset($_SESSION["UserId"]))
@@ -29,10 +26,19 @@ else
                             <th>Remove</th>
                         </tr>
                     </thead>
+                    <?php 
+                    $sql="SELECT * FROM user_product where BId = '$_SESSION[UserId]'";
+                    $execute=$conn->query($sql);
+                    while($Data=$execute->fetch_assoc()){
+                        $sql2="select * from product where Id= $Data[PId]";
+                        $execute2=$conn->query($sql2);
+                        $Data2=$execute2->fetch_assoc()
+                    ?>
                     <tbody class="align-middle">
                         <tr>
-                            <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
+                            <td class="align-middle"><img src=<?php echo $Data2["Photo"] ?> alt="" style="width: 50px;"> <?php echo $Data2["Name"] ?></td>
+                            <td class="align-middle"><?php echo $Data2["Price"]."L.E" ?></td>
+                            
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
@@ -40,7 +46,7 @@ else
                                         <i class="fa fa-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value=<?php $sql3="select * from user_product where PId=$Data2[Id] and BId=$_SESSION[UserId]"; $execute3=$conn->query($sql3); $Data3=$execute3->fetch_assoc(); echo $Data3["Qty"];  ?>>
                                     <div class="input-group-btn">
                                         <button class="btn btn-sm btn-primary btn-plus">
                                             <i class="fa fa-plus"></i>
@@ -48,12 +54,27 @@ else
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+                            <td class="align-middle"><?php echo $Data3["Qty"]*$Data2["Price"]."L.E";  ?></td>
+                            <td class="align-middle"><button type="button" onclick="remove(<?php echo $Data2['Id']?>)"  class="btn btn-sm btn-danger"><i class="fa fa-times"></i> </button></td>
+                            <script>
+                            function remove(Id)
+                            {
+                                var xmlhttp = new XMLHttpRequest();
+                                    xmlhttp.onreadystatechange = function() {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        document.getElementById("num").innerHTML = this.responseText;
+                                    }
+                                    };
+                                    xmlhttp.open("GET","removeitem.php?PID="+Id,true);
+                                    xmlhttp.send();
+                                    
+                            }
+                            </script>
                         </tr>
-                        
-                        
                     </tbody>
+                    <?php
+                    }
+                    ?>
                 </table>
             </div>
             <div class="col-lg-4">

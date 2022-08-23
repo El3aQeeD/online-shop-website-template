@@ -9,5 +9,6 @@ $password=$_REQUEST["password"];
 
 $sql="INSERT INTO user (FullName,Address,PhoneNumber,UserTypeId,Email,Password) VALUES ('$name','$address','$phone',1,'$email','$password')";
 $conn->query($sql);
-echo $conn->insert_id;
+//echo $conn->insert_id;
+header('location:sign.php');
 ?>

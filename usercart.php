@@ -7,7 +7,8 @@ $PID=$_REQUEST["PID"];
 
 if(isset($_SESSION["UserId"])){
 $UserId=$_SESSION["UserId"];
-$sql2="INSERT into user_product (BId,PId) Values ($UserId,$PID)";
+
+$sql2="INSERT into user_product (BId,PId,Qty) Values ($UserId,$PID,$_SESSION[qty])";
 $execute2=$conn->query($sql2);
 
 }
