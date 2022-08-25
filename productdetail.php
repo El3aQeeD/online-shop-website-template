@@ -78,7 +78,7 @@ $UserId=$_SESSION["UserId"];
                                 <button type="button" onclick="increaseqty(<?php echo $_SESSION['qty']; ?>)" class="btn btn-primary btn-plus">
                                     <i class="fa fa-plus"></i>
                                 </button>
-                                <?php echo $_SESSION["qty"]; ?>
+                               
                             </div>
                             
                         </div>
