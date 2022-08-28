@@ -1,13 +1,16 @@
 <?php
-
+$UserId=$_REQUEST["UserId"];
+if($UserId==-1){
+    header("location:sign.php");
+}
 include_once 'db.php';
 include_once 'header.php';
 
-$UserId=$_SESSION["UserId"];
 ?>
-
 <?php
             $PID=$_REQUEST["PID"];
+            
+            
             $sql="SELECT * FROM product WHERE Id=$PID";
             $execute=$conn->query($sql);
             $Data=$execute->fetch_assoc();
@@ -107,7 +110,7 @@ $UserId=$_SESSION["UserId"];
                             }
                         </script>
 
-                        <button class="btn btn-primary px-3" type="button" onclick="showUser(<?php echo $PID; ?>)" ><i class="fa fa-shopping-cart mr-1"></i> Add To
+                        <button class="btn btn-primary px-3" type="button" onclick="showUser(<?php  echo $PID; ?>)" ><i class="fa fa-shopping-cart mr-1"></i> Add To
                             Cart
                             </button>
                             <script>

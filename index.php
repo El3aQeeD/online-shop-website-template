@@ -11,6 +11,14 @@ $count=0;
 $sql="SELECT * FROM product";
 $execute=$conn->query($sql);
 $_SESSION["qty"]=1;
+if(isset($_SESSION["UserId"]))
+{
+    $UserId=$_SESSION["UserId"];
+}
+else
+{
+    $UserId=-1;
+}
 while($Data=$execute->fetch_assoc()){
 
 ?>
@@ -22,7 +30,7 @@ while($Data=$execute->fetch_assoc()){
                     <div class="product-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src=<?php echo $Data["Photo"];?> alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="productdetail.php?PID=<?php echo $Data["Id"];?>"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="productdetail.php?UserId=<?php echo $UserId; ?>&PID=<?php echo $Data["Id"];?>"><i class="fa fa-shopping-cart"></i></a>
                             
                         </div>
                     </div>
