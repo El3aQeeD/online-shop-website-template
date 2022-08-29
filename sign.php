@@ -1,5 +1,5 @@
 
-<link href="css/sign.css" rel="stylesheet">
+<link href="css/sign1.css" rel="stylesheet">
 <div class="cont_principal">
 
   <div class="cont_centrar">
