@@ -73,7 +73,8 @@ include_once 'header.php';
                                
                             
                             </div>
-                            <input type="text" name="qty" class="form-control bg-secondary border-0 text-center" value="<?php echo $_SESSION["qty"]; ?>">
+                            <output value="<?php echo $_SESSION["qty"]; ?>" class="form-control bg-secondary border-0 text-center"  ><?php echo $_SESSION["qty"]; ?></output>
+                            
                            
                             <div class="input-group-btn">
                                 
@@ -95,6 +96,11 @@ include_once 'header.php';
                                     };
                                     xmlhttp.open("GET","decreasecart.php?QTY="+qty,true);
                                     xmlhttp.send();
+                                    autoRefresh();
+                                    function autoRefresh() {
+                                            window.location = window.location.href;
+                                        }
+                                        setInterval('autoRefresh()', 5000);
                                     
                             }
                             function increaseqty(qty){
@@ -106,7 +112,11 @@ include_once 'header.php';
                                     };
                                     xmlhttp.open("GET","increasecart.php?QTY="+qty,true);
                                     xmlhttp.send();
-                                    
+                                    autoRefresh();
+                                    function autoRefresh() {
+                                            window.location = window.location.href;
+                                        }
+                                        setInterval('autoRefresh()', 5000);
                             }
                         </script>
 

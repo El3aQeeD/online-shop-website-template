@@ -47,7 +47,7 @@ $suptotal=0;
                                         <i class="fa fa-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value=<?php  echo $Data3["Qty"];  ?>>
+                                    <output type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value=<?php  echo $Data3["Qty"];  ?>><?php  echo $Data3["Qty"];  ?></output>
                                     <div class="input-group-btn">
                                         <button type="button" onclick="updateqty(<?php echo $Data3['Qty']; ?>,1,<?php echo $Data2['Id']; ?>)" class="btn btn-sm btn-primary btn-plus">
                                             <i class="fa fa-plus"></i>
